@@ -1,0 +1,2 @@
+[workspace]
+members = ["pancake", "pancake-macro"]
