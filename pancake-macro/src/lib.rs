@@ -19,3 +19,8 @@ fn impl_ident_meta(ast: DeriveInput) -> TokenStream {
     }
     .into()
 }
+
+#[proc_macro]
+pub fn useless(input: TokenStream) -> TokenStream {
+    input
+}
