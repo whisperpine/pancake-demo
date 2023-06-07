@@ -1,2 +1,7 @@
 [workspace]
 members = ["pancake", "pancake-macro"]
+
+
+[workspace.package]
+version = "0.1.0"
+authors = ["Yusong Lai <yusong.lai@icloud.com>"]

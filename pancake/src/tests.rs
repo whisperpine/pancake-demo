@@ -27,3 +27,20 @@ fn nice() {
     println!("{}", pan.get_name());
     println!("{:?}", pan.get_items_name());
 }
+
+#[test]
+fn labeled_blocks() {
+    let amiao_is_a_cat = false;
+    let meow_is_a_cat = true;
+    let result = 'block: {
+        if amiao_is_a_cat {
+            break 'block 1;
+        }
+        if meow_is_a_cat {
+            break 'block 2;
+        }
+        3
+    };
+
+    assert_eq!(result, 2);
+}

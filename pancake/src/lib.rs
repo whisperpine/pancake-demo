@@ -8,6 +8,15 @@ pub trait IdentMeta {
     fn get_items_name(&self) -> Vec<&'static str>;
 }
 
+/// Demo GAT - Generic Associated Type
+pub trait LendingIterator {
+    type Item<'a>
+    where
+        Self: 'a;
+
+    fn next<'a>(&mut self) -> Option<Self::Item<'a>>;
+}
+
 #[macro_export]
 macro_rules! retain_expr {
     ($e:expr) => {
