@@ -44,3 +44,27 @@ fn labeled_blocks() {
 
     assert_eq!(result, 2);
 }
+
+#[test]
+fn scoped_thread() {
+    let mut v = vec![1, 2, 3];
+    let mut x = 0;
+    std::thread::scope(|s| {
+        s.spawn(|| {
+            println!("hello from first scoped thread");
+            dbg!(&v);
+        });
+        s.spawn(|| {
+            println!("hello from second scoped thread");
+            x += v[0] + v[2];
+        });
+    });
+
+    v.push(4);
+    assert_eq!(x, v.len());
+}
+
+#[test]
+fn demo() {
+    // demo
+}
