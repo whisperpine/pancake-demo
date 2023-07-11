@@ -65,6 +65,13 @@ fn scoped_thread() {
 }
 
 #[test]
+fn is_terminal() {
+    use std::io::{self, IsTerminal};
+    let is_terminal = io::stdout().is_terminal();
+    println!("is_terminal: {}", is_terminal);
+}
+
+#[test]
 fn demo() {
-    // demo
+    //
 }
