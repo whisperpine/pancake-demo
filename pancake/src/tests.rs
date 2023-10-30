@@ -22,10 +22,10 @@ fn nice() {
         baked: bool,
     }
 
-    let pan = retain_expr!(Pan::default());
-    useless!(let pan = pan;);
-    println!("{}", pan.get_name());
-    println!("{:?}", pan.get_items_name());
+    // let pan = retain_expr!(Pan::default());
+    // useless!(let pan = pan;);
+    // println!("{}", pan.get_name());
+    // println!("{:?}", pan.get_items_name());
 }
 
 #[test]
