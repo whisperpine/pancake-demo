@@ -1,0 +1,8 @@
+[workspace]
+resolver = "2"
+members = ["pancake", "pancake-macro"]
+
+[workspace.package]
+version = "0.1.0"
+authors = ["Yusong Lai <yusong.lai@icloud.com>"]
+license = "MIT OR Apache-2.0"

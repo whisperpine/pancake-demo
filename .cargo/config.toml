@@ -1,0 +1,5 @@
+# Workspace cargo config
+
+# sparse protocol is supported by default since rust v1.70
+# [registries.crates-io]
+# protocol = "sparse"
