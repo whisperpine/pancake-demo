@@ -1,8 +1,11 @@
 [workspace]
-resolver = "2"
+resolver = "3"
 members = ["pancake", "pancake-macro"]
 
 [workspace.package]
 version = "0.1.0"
 authors = ["Yusong Lai <yusong.lai@icloud.com>"]
+repository = "https://github.com/whisperpine/pancake-demo"
 license = "MIT OR Apache-2.0"
+readme = "README.md"
+edition = "2024"
