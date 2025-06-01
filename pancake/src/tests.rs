@@ -1,20 +1,20 @@
 use super::*;
 
 #[test]
-fn vec_string() {
+fn test_vec_string() {
     let v = vec_strings!("amiao", true, 3.55f32);
     println!("{:?}", v);
 }
 
 #[test]
-fn times_five() {
+fn test_times_five() {
     let value = times_five!(5);
     assert_eq!(value, 25);
     println!("value: {}", value);
 }
 
 #[test]
-fn nice() {
+fn test_ident_meta() {
     #[allow(dead_code)]
     #[derive(Default, IdentMeta)]
     struct Pan {
@@ -22,56 +22,21 @@ fn nice() {
         baked: bool,
     }
 
-    // let pan = retain_expr!(Pan::default());
-    // useless!(let pan = pan;);
-    // println!("{}", pan.get_name());
-    // println!("{:?}", pan.get_items_name());
+    let pan = Pan::default();
+    println!("{}", pan.get_name());
+    println!("{:?}", pan.get_items_name());
 }
 
 #[test]
-fn labeled_blocks() {
-    let amiao_is_a_cat = false;
-    let meow_is_a_cat = true;
-    let result = 'block: {
-        if amiao_is_a_cat {
-            break 'block 1;
-        }
-        if meow_is_a_cat {
-            break 'block 2;
-        }
-        3
-    };
+fn test_comp() {
+    let v1: Vec<i32> = comp![x * 2 for x in [1, 2, 3] if x != 3 if x != 2].collect();
+    assert_eq!(v1, [2]);
 
-    assert_eq!(result, 2);
-}
-
-#[test]
-fn scoped_thread() {
-    let mut v = vec![1, 2, 3];
-    let mut x = 0;
-    std::thread::scope(|s| {
-        s.spawn(|| {
-            println!("hello from first scoped thread");
-            dbg!(&v);
-        });
-        s.spawn(|| {
-            println!("hello from second scoped thread");
-            x += v[0] + v[2];
-        });
-    });
-
-    v.push(4);
-    assert_eq!(x, v.len());
-}
-
-#[test]
-fn is_terminal() {
-    use std::io::{self, IsTerminal};
-    let is_terminal = io::stdout().is_terminal();
-    println!("is_terminal: {}", is_terminal);
-}
-
-#[test]
-fn demo() {
-    //
+    let v2 = Vec::from([
+        ("amiao".to_owned(), 5),
+        ("yahaha".to_owned(), 66),
+        ("zzz".to_owned(), 12),
+    ]);
+    let v2 = comp![format!("{s}@{n}") for (s, n) in v2 if n < 50].collect::<Vec<String>>();
+    assert_eq!(v2, ["amiao@5", "zzz@12"]);
 }

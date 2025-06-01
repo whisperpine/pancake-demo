@@ -1,3 +1,3 @@
 # README
 
-Project to demo rust macros.
+A project to experiment rust macros.
