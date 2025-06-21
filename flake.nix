@@ -47,7 +47,7 @@
           #   extensions = [ "rust-src" ];
           #   targets = [ ];
           # };
-          rust.nightly."2025-02-20".default.override {
+          rust.nightly."2025-06-20".default.override {
             extensions = [ "rust-src" ];
             targets = [ ];
           };
@@ -59,6 +59,7 @@
           default = pkgs.mkShell {
             packages = with pkgs; [
               rustToolchain
+              cargo-edit # managing cargo dependencies
               bacon # background code checker
               just # just a command runner
             ];

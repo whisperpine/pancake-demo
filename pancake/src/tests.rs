@@ -3,14 +3,14 @@ use super::*;
 #[test]
 fn test_vec_string() {
     let v = vec_strings!("amiao", true, 3.55f32);
-    println!("{:?}", v);
+    println!("{v:?}");
 }
 
 #[test]
 fn test_times_five() {
     let value = times_five!(5);
     assert_eq!(value, 25);
-    println!("value: {}", value);
+    println!("value: {value}");
 }
 
 #[test]
